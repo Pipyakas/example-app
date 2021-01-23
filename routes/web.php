@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/test', function () {
-    return view('test');
+    $article = App\Models\Articles::latest()->get();
+    return $article;
 });
 
 Route::get('/', function () {
@@ -21,5 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'article' => App\Models\Articles::take(3)->latest()->get()
+    ]);
 });

@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <!--
 Design by TEMPLATED
 http://templated.co
