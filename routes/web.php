@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/test', function () {
     $article = App\Models\Articles::latest()->get();
     return $article;
@@ -26,3 +28,5 @@ Route::get('/about', function () {
         'article' => App\Models\Articles::take(3)->latest()->get()
     ]);
 });
+
+Route::get('/articles/{article}', [ArticlesController::class, 'show']);

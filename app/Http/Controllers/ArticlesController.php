@@ -44,9 +44,11 @@ class ArticlesController extends Controller
      * @param  \App\Models\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function show(Articles $articles)
+    public function show($id)
     {
-        //
+        $article = Articles::find($id);
+
+        return view('articles.show', ['articles' => $article]);
     }
 
     /**
